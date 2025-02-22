@@ -1,0 +1,77 @@
+[
+    {
+        "name": "HTML",
+        "percentage": 95,
+        "icon": "/placeholder.svg?height=48&width=48"
+    },
+    {
+        "name": "CSS",
+        "percentage": 90,
+        "icon": "/placeholder.svg?height=48&width=48"
+    },
+    {
+        "name": "JavaScript",
+        "percentage": 93,
+        "icon": "/placeholder.svg?height=48&width=48"
+    },
+    {
+        "name": "React",
+        "percentage": 89,
+        "icon": "/placeholder.svg?height=48&width=48"
+    },
+    {
+        "name": "Node.js",
+        "percentage": 85,
+        "icon": "/placeholder.svg?height=48&width=48"
+    },
+    {
+        "name": "Express.js",
+        "percentage": 80,
+        "icon": "/placeholder.svg?height=48&width=48"
+    },
+    {
+        "name": "MongoDB",
+        "percentage": 85,
+        "icon": "/placeholder.svg?height=48&width=48"
+    },
+    {
+        "name": "MySQL",
+        "percentage": 90,
+        "icon": "/placeholder.svg?height=48&width=48"
+    },
+    {
+        "name": "Python",
+        "percentage": 88,
+        "icon": "/placeholder.svg?height=48&width=48"
+    },
+    {
+        "name": "PHP",
+        "percentage": 80,
+        "icon": "/placeholder.svg?height=48&width=48"
+    },
+    {
+        "name": "GraphQL",
+        "percentage": 75,
+        "icon": "/placeholder.svg?height=48&width=48"
+    },
+    {
+        "name": "Git",
+        "percentage": 95,
+        "icon": "/placeholder.svg?height=48&width=48"
+    },
+    {
+        "name": "Docker",
+        "percentage": 70,
+        "icon": "/placeholder.svg?height=48&width=48"
+    },
+    {
+        "name": "AWS",
+        "percentage": 65,
+        "icon": "/placeholder.svg?height=48&width=48"
+    },
+    {
+        "name": "TypeScript",
+        "percentage": 85,
+        "icon": "/placeholder.svg?height=48&width=48"
+    }
+]

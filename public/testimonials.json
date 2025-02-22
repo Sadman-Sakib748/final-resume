@@ -1,0 +1,21 @@
+[
+    {
+      "id": 1,
+      "author": "Tim Bailey",
+      "role": "SEO Specialist",
+      "company": "Theme Junction",
+      "text": "Taylor is a professional Designer he really helps my business by providing value to my business.",
+      "image": "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot%202025-02-22%20193642-m7KCyIpU53OUeCtlLWwiTQ1LVPhUYt.png",
+      "logo": "/placeholder.svg?height=40&width=40"
+    },
+    {
+      "id": 2,
+      "author": "Brandon Fraser",
+      "role": "Senior Software Dev",
+      "company": "Cosmic Sport",
+      "text": "Taylor is a professional Designer he really helps my business by providing value to my business.",
+      "image": "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot%202025-02-22%20193642-m7KCyIpU53OUeCtlLWwiTQ1LVPhUYt.png",
+      "logo": "/placeholder.svg?height=40&width=40"
+    }
+  ]
+  

@@ -11,14 +11,17 @@
   },
   "dependencies": {
     "antd": "^5.24.1",
+    "formik": "^2.4.6",
     "framer-motion": "^12.4.7",
     "localforage": "^1.10.0",
     "lucide-react": "^0.475.0",
     "match-sorter": "^8.0.0",
+    "next": "^15.1.7",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-router-dom": "^7.2.0",
-    "sort-by": "^1.2.0"
+    "sort-by": "^1.2.0",
+    "yup": "^1.6.1"
   },
   "devDependencies": {
     "@eslint/js": "^9.19.0",
