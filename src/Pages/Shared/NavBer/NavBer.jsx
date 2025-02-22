@@ -23,7 +23,7 @@ const NavBer = () => {
 
                 {/* Logo Section */}
                 <div className="flex-shrink-0">
-                    <Link to="/"><img  src={logo} alt="Logo" className="h-12 w-auto" /></Link>
+                    <img src={logo} alt="Logo" className="h-12 w-auto" />
                 </div>
 
                 {/* Desktop Menu */}
