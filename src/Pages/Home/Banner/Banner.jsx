@@ -1,23 +1,10 @@
 import { motion } from "framer-motion";
 import { Button } from "antd";
-import { 
-  DownloadOutlined, TwitterOutlined, LinkedinOutlined, 
-  GithubOutlined, DribbbleOutlined, FacebookOutlined 
-} from "@ant-design/icons"; 
+import { DownloadOutlined, TwitterOutlined, LinkedinOutlined, GithubOutlined, FacebookOutlined } from "@ant-design/icons";
 import sad from './../../../assets/sadman.png';
 import { useEffect, useState } from "react";
 
 const Banner = () => {
-  const [showFacebook, setShowFacebook] = useState(true);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setShowFacebook((prev) => !prev);
-    }, 3000);
-
-    return () => clearInterval(interval);
-  }, []);
-
   return (
     <div className="min-h-screen bg-[#0D0B1F] relative overflow-hidden">
       {/* Grid Background */}
@@ -42,16 +29,65 @@ const Banner = () => {
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Left Section - Text & Buttons */}
           <div className="space-y-8 text-white z-20 relative">
-            <h1 className="text-4xl md:text-5xl font-bold">I am Sadman Shakib</h1>
-            <h2 className="text-4xl md:text-6xl font-bold">
+            {/* Name Animation */}
+            <motion.h1
+              initial={{ opacity: 0, y: -50 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1, type: "spring", stiffness: 50 }}
+              className="text-4xl sm:text-5xl md:text-6xl font-bold mb-4  text-center md:text-left"
+            >
+              {["S", "a", "d", "m", "a", "n", " ", "-", " ", "S", "a", "k", "i", "b"].map((char, index) => (
+                <span
+                  key={index}
+                  className="inline-block bounce-color"
+                  style={{
+                    animationDelay: `${index * 0.1}s`,
+                    animationDuration: "1s",
+                    animationIterationCount: "infinite",
+                  }}
+                >
+                  {char}
+                </span>
+              ))}
+              <style>
+                {`
+                  .bounce-color {
+                    color: white;
+                    animation-name: bounceColor;
+                  }
+
+                  @keyframes bounceColor {
+                    0%, 100% {
+                      transform: translateY(0);
+                      color: white;
+                    }
+                    50% {
+                      transform: translateY(-10px);
+                      color: #4195f7; /* Gradient's color */
+                    }
+                  }
+                `}
+              </style>
+            </motion.h1>
+            <motion.h2
+              initial={{ opacity: 0, y: -50 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1, type: "spring", stiffness: 50 }}
+              className="text-4xl md:text-6xl font-bold"
+            >
               <span className="bg-gradient-to-r from-purple-400 to-purple-600 text-transparent bg-clip-text">
                 Next-Level Web Developer.
               </span>
-            </h2>
-            <p className="text-gray-300 text-lg md:text-xl max-w-xl">
+            </motion.h2>
+            <motion.p
+              initial={{ opacity: 0, y: -50 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1, type: "spring", stiffness: 50 }}
+              className="text-gray-300 text-lg md:text-xl max-w-xl"
+            >
               I break down complex user experience problems to create integrity-focused 
               solutions that connect billions of people.
-            </p>
+            </motion.p>
 
             {/* Buttons */}
             <div className="flex flex-wrap gap-4">
@@ -72,15 +108,16 @@ const Banner = () => {
 
               {/* Social Media Icons */}
               <div className="flex gap-4">
-                {[
-                  { icon: TwitterOutlined, href: "#twitter" },
-                  { icon: DribbbleOutlined, href: "#dribbble" },
-                  { icon: LinkedinOutlined, href: "#linkedin" },
-                  { icon: GithubOutlined, href: "#github" },
+                {[ 
+                  { icon: TwitterOutlined, href: "https://x.com/home" }, 
+                  { icon: LinkedinOutlined, href: "https://www.facebook.com/profile.php?id=100076267579935" },
+                  { icon: GithubOutlined, href: "https://github.com/" },
                 ].map((social, index) => (
                   <motion.a
                     key={index}
                     href={social.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     whileHover={{ scale: 1.1 }}
                     className="w-10 h-10 rounded-full border border-purple-500/50 
                     flex items-center justify-center text-purple-400 hover:bg-purple-500 
@@ -90,28 +127,17 @@ const Banner = () => {
                   </motion.a>
                 ))}
 
-                {/* Facebook Icon with Smooth Fade Toggle */}
-                <motion.div
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: showFacebook ? 1 : 0 }}
-                  transition={{ duration: 0.5 }}
+                {/* Facebook Icon (No animation) */}
+                <a
+                  href="https://www.facebook.com/profile.php?id=100076267579935"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-10 h-10 rounded-full border border-purple-500/50 
+                  flex items-center justify-center text-purple-400 hover:bg-purple-500 
+                  hover:text-white transition-all"
                 >
-                  {showFacebook && (
-                    <motion.a
-                      href="#facebook"
-                      whileHover={{
-                        scale: 1.1,
-                        rotate: 10,
-                        transition: { type: "spring", stiffness: 200 },
-                      }}
-                      className="w-10 h-10 rounded-full border border-purple-500/50 
-                      flex items-center justify-center text-purple-400 hover:bg-purple-500 
-                      hover:text-white transition-all"
-                    >
-                      <FacebookOutlined className="h-5 w-5" />
-                    </motion.a>
-                  )}
-                </motion.div>
+                  <FacebookOutlined className="h-5 w-5" />
+                </a>
               </div>
             </div>
           </div>
@@ -138,7 +164,7 @@ const Banner = () => {
         </div>
       </motion.div>
 
-      {/* Statistics Section */}
+      {/* Developer Section */}
       <div className="bg-[#0F0A1F] py-12 px-4 md:py-16">
         <div className="max-w-7xl mx-auto">
           <motion.div
@@ -147,7 +173,18 @@ const Banner = () => {
             animate={{ opacity: 1 }}
             transition={{ duration: 1, delay: 0.5 }}
           >
-            {[
+            {/* Developer Title */}
+            <motion.h3
+              initial={{ opacity: 0, y: -30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1, type: "spring", stiffness: 50 }}
+              className="text-3xl text-center text-white font-semibold mb-8"
+            >
+              Developer Stats
+            </motion.h3>
+
+            {/* Stats */}
+            {[ 
               { number: "3+", text: "Years of Experience" },
               { number: "50+", text: "Projects Completed" },
               { number: "1.5K", text: "Happy Clients" },
