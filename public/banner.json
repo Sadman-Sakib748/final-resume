@@ -1,0 +1,60 @@
+[
+    {
+      "type": "banner",
+      "background": {
+        "grid": {
+          "color1": "#6D28D9",
+          "color2": "transparent",
+          "size": "64px 64px"
+        },
+        "gradientOverlay": {
+          "from": "purple-900/50",
+          "to": "transparent"
+        }
+      },
+      "mainContent": {
+        "text": {
+          "title": "I am Sadman Shakib",
+          "subtitle": "Next-Level Web Developer.",
+          "description": "I break down complex user experience problems to create integrity-focused solutions that connect billions of people."
+        },
+        "buttons": [
+          {
+            "icon": "DownloadOutlined",
+            "label": "Download CV",
+            "href": "#cv",
+            "style": "primary"
+          }
+        ],
+        "socialMedia": [
+          { "icon": "TwitterOutlined", "href": "#twitter" },
+          { "icon": "DribbbleOutlined", "href": "#dribbble" },
+          { "icon": "LinkedinOutlined", "href": "#linkedin" },
+          { "icon": "GithubOutlined", "href": "#github" },
+          { "icon": "FacebookOutlined", "href": "#facebook", "toggle": true }
+        ],
+        "profileImage": {
+          "src": "sadman.png",
+          "alt": "Profile",
+          "effect": {
+            "blur": {
+              "from": "purple-600",
+              "to": "blue-600",
+              "opacity": 0.3,
+              "animation": "pulse"
+            },
+            "hover": {
+              "scale": 1.1
+            }
+          }
+        }
+      },
+      "statistics": [
+        { "number": "3+", "text": "Years of Experience" },
+        { "number": "50+", "text": "Projects Completed" },
+        { "number": "1.5K", "text": "Happy Clients" },
+        { "number": "20+", "text": "Certifications & Awards" }
+      ]
+    }
+  ]
+  

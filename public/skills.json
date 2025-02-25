@@ -35,18 +35,13 @@
         "icon": "/placeholder.svg?height=48&width=48"
     },
     {
+        "name": "Mongoose",
+        "percentage": 85,
+        "icon": "/placeholder.svg?height=48&width=48"
+    },
+    {
         "name": "MySQL",
         "percentage": 90,
-        "icon": "/placeholder.svg?height=48&width=48"
-    },
-    {
-        "name": "Python",
-        "percentage": 88,
-        "icon": "/placeholder.svg?height=48&width=48"
-    },
-    {
-        "name": "PHP",
-        "percentage": 80,
         "icon": "/placeholder.svg?height=48&width=48"
     },
     {

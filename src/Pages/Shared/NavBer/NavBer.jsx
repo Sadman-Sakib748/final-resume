@@ -19,12 +19,20 @@ const NavBer = () => {
 
     return (
         <Layout className="mx-auto">
-            <Header className="flex items-center justify-between bg-[#001529] px-8 py-14">
+            <Header className="flex items-center justify-between bg-[#001529] px-8 md:py-14">
 
                 {/* Logo Section */}
-                <div className="flex-shrink-0">
-                    <img src={logo} alt="Logo" className="h-12 w-auto" />
+                <div className="flex-shrink-0 relative aspect-square">
+                    <div className="absolute inset-0 bg-gradient-to-r from-[#8f1f57] to-[#762e84] 
+        via-[#a3c8e3] rounded-3xl blur-3xl animate-pulse z-10"></div>
+                    <Link to="/" className="relative z-20">
+                        <img src={logo} alt="Logo" className="h-12 w-auto" />
+                    </Link>
                 </div>
+
+
+
+
 
                 {/* Desktop Menu */}
                 <div className="hidden lg:flex flex-1 justify-end">
