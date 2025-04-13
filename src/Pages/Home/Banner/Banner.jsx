@@ -1,13 +1,50 @@
 import { motion } from "framer-motion";
 import { Button } from "antd";
-import { DownloadOutlined, TwitterOutlined, LinkedinOutlined, GithubOutlined, FacebookOutlined } from "@ant-design/icons";
-import sad from './../../../assets/sadman.png';
+import {
+  DownloadOutlined,
+  TwitterOutlined,
+  LinkedinOutlined,
+  GithubOutlined,
+  FacebookOutlined,
+} from "@ant-design/icons";
+import sad from "./../../../assets/sadman.png";
 import { useEffect, useState } from "react";
 
 const Banner = () => {
+  const fullText =
+    "I break down complex user experience problems to create integrity-focused solutions that connect billions of people.";
+  const [displayedText, setDisplayedText] = useState("");
+  const [isDeleting, setIsDeleting] = useState(false);
+  const [index, setIndex] = useState(0);
+
+  useEffect(() => {
+    const speed = isDeleting ? 30 : 60;
+
+    const typingInterval = setInterval(() => {
+      if (!isDeleting) {
+        setDisplayedText(fullText.slice(0, index + 1));
+        setIndex((prev) => prev + 1);
+
+        if (index >= fullText.length) {
+          setIsDeleting(true);
+          setTimeout(() => {}, 1000); // pause before deleting
+        }
+      } else {
+        setDisplayedText(fullText.slice(0, index - 1));
+        setIndex((prev) => prev - 1);
+
+        if (index <= 0) {
+          setIsDeleting(false);
+        }
+      }
+    }, speed);
+
+    return () => clearInterval(typingInterval);
+  }, [index, isDeleting]);
+
   return (
     <div className="min-h-screen bg-[#0D0B1F] relative overflow-hidden">
-      {/* Grid Background */}
+      {/* Background Grid */}
       <div
         className="absolute inset-0 opacity-20"
         style={{
@@ -16,10 +53,8 @@ const Banner = () => {
           backgroundSize: "64px 64px",
         }}
       />
-      {/* Gradient Overlay */}
       <div className="absolute inset-0 bg-gradient-to-br from-purple-900/50 via-transparent to-transparent" />
 
-      {/* Main Content */}
       <motion.div
         initial={{ opacity: 0, x: -20 }}
         animate={{ opacity: 1, x: 0 }}
@@ -27,14 +62,12 @@ const Banner = () => {
         className="relative z-10 container mx-auto px-4 py-20 min-h-screen flex items-center"
       >
         <div className="grid lg:grid-cols-2 gap-12 items-center">
-          {/* Left Section - Text & Buttons */}
           <div className="space-y-8 text-white z-20 relative">
-            {/* Name Animation */}
             <motion.h1
               initial={{ opacity: 0, y: -50 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, type: "spring", stiffness: 50 }}
-              className="text-4xl sm:text-5xl md:text-6xl font-bold mb-4  text-center md:text-left"
+              className="text-4xl sm:text-5xl md:text-6xl font-bold mb-4 text-center md:text-left"
             >
               {["S", "a", "d", "m", "a", "n", " ", "-", " ", "S", "a", "k", "i", "b"].map((char, index) => (
                 <span
@@ -63,12 +96,13 @@ const Banner = () => {
                     }
                     50% {
                       transform: translateY(-10px);
-                      color: #4195f7; /* Gradient's color */
+                      color: #4195f7;
                     }
                   }
                 `}
               </style>
             </motion.h1>
+
             <motion.h2
               initial={{ opacity: 0, y: -50 }}
               animate={{ opacity: 1, y: 0 }}
@@ -79,14 +113,26 @@ const Banner = () => {
                 Next-Level Web Developer.
               </span>
             </motion.h2>
+
+            {/* Repeating Typing Effect */}
             <motion.p
-              initial={{ opacity: 0, y: -50 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1, type: "spring", stiffness: 50 }}
-              className="text-gray-300 text-lg md:text-xl max-w-xl"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 1 }}
+              className="text-gray-300 text-lg md:text-xl max-w-xl whitespace-pre-wrap min-h-[100px]"
             >
-              I break down complex user experience problems to create integrity-focused 
-              solutions that connect billions of people.
+              {displayedText}
+              <motion.span
+                animate={{ opacity: [0, 1, 0] }}
+                transition={{
+                  repeat: Infinity,
+                  duration: 1,
+                  ease: "easeInOut",
+                }}
+                className="inline-block"
+              >
+                |
+              </motion.span>
             </motion.p>
 
             {/* Buttons */}
@@ -106,11 +152,10 @@ const Banner = () => {
                 </Button>
               </motion.div>
 
-              {/* Social Media Icons */}
               <div className="flex gap-4">
-                {[ 
-                  { icon: TwitterOutlined, href: "https://x.com/home" }, 
-                  { icon: LinkedinOutlined, href: "https://www.facebook.com/profile.php?id=100076267579935" },
+                {[
+                  { icon: TwitterOutlined, href: "https://x.com/home" },
+                  { icon: LinkedinOutlined, href: "https://www.linkedin.com/" },
                   { icon: GithubOutlined, href: "https://github.com/" },
                 ].map((social, index) => (
                   <motion.a
@@ -127,7 +172,6 @@ const Banner = () => {
                   </motion.a>
                 ))}
 
-                {/* Facebook Icon (No animation) */}
                 <a
                   href="https://www.facebook.com/profile.php?id=100076267579935"
                   target="_blank"
@@ -142,7 +186,7 @@ const Banner = () => {
             </div>
           </div>
 
-          {/* Right Section - Profile Image */}
+          {/* Profile Image */}
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -150,62 +194,17 @@ const Banner = () => {
             className="relative"
           >
             <div className="relative aspect-square max-w-md mx-auto">
-              <div className="absolute inset-0 bg-gradient-to-r from-purple-600 to-blue-600 
-              rounded-3xl blur-3xl opacity-30 animate-pulse" />
+              <div className="absolute inset-0 bg-gradient-to-r from-purple-600 to-blue-600 rounded-3xl blur-3xl opacity-30 animate-pulse" />
               <motion.img
                 src={sad}
                 alt="Profile"
-                className="relative z-10 object-cover w-full h-full transition-all 
-                duration-500 ease-in-out transform rounded-full hover:scale-105"
+                className="relative z-10 object-cover w-full h-full transition-all duration-500 ease-in-out transform rounded-full hover:scale-105"
                 whileHover={{ scale: 1.1 }}
               />
             </div>
           </motion.div>
         </div>
       </motion.div>
-
-      {/* Developer Section */}
-      <div className="bg-[#0F0A1F] py-12 px-4 md:py-16">
-        <div className="max-w-7xl mx-auto">
-          <motion.div
-            className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 1, delay: 0.5 }}
-          >
-            {/* Developer Title */}
-            <motion.h3
-              initial={{ opacity: 0, y: -30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1, type: "spring", stiffness: 50 }}
-              className="text-3xl text-center text-white font-semibold mb-8"
-            >
-              Developer Stats
-            </motion.h3>
-
-            {/* Stats */}
-            {[ 
-              { number: "3+", text: "Years of Experience" },
-              { number: "50+", text: "Projects Completed" },
-              { number: "1.5K", text: "Happy Clients" },
-              { number: "20+", text: "Certifications & Awards" }
-            ].map((stat, index) => (
-              <motion.div
-                key={index}
-                whileHover={{ scale: 1.05, rotate: 2 }}
-                className="space-y-2"
-              >
-                <div className="text-4xl md:text-5xl font-bold text-white">
-                  {stat.number}
-                </div>
-                <p className="text-gray-400 text-sm md:text-base">
-                  {stat.text}
-                </p>
-              </motion.div>
-            ))}
-          </motion.div>
-        </div>
-      </div>
     </div>
   );
 };
