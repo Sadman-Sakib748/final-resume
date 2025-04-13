@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react"
 import { motion } from "framer-motion"
 import { Linkedin, Instagram, Facebook, MessageCircle } from "lucide-react"
-import image from '../../../assets/sadman.png';
+import image from '../../../assets/Mi.jpg';
 
 const Service = () => {
   const [isLoaded, setIsLoaded] = useState(false)
